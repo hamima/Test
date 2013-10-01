@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>سیستم HSE</title>
+	<meta content="HTML,CSS,XML,JavaScript" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/desktop.css" />
+	<link rel="stylesheet" type="text/css" href="ext-4.0/resources/ext-theme-neptune/ext-theme-neptune-all-rtl-debug.css">
+    <!-- GC -->
+
+    <!-- <x-compile> -->
+    <!-- <x-bootstrap> -->
+    <!--  <script type="text/javascript" src="shared/include-ext.js"></script>
+    <script type="text/javascript" src="shared/options-toolbar.js"></script>-->
+    <script type="text/javascript" src="ext-4.0/ext-all-rtl-dev.js"></script>
+    <script type="text/javascript" src="app/view/vtype/uniqueUserName.js"></script>
+    <!-- </x-bootstrap> -->
+    <script type="text/javascript">
+        Ext.Loader.setPath({
+            'Ext.ux.desktop': 'js',
+            'HSE.view':'app/view',
+            'Ext.ux':'ux',
+            MyDesktop: ''
+        });
+
+        Ext.require('MyDesktop.App');
+        /*Ext.require('MyDesktop.app.store.Organs');
+        Ext.require('MyDesktop.app.store.Posts');
+        Ext.require('MyDesktop.app.store.UserStore');
+        Ext.require('MyDesktop.app.store.PersonalInfoStore');
+        Ext.require('MyDesktop.app.store.HSEPassStore');
+        Ext.require('MyDesktop.app.store.FlowStructureStore');
+        Ext.require('MyDesktop.app.store.CountryStructureStore');
+        Ext.require('MyDesktop.app.store.CapsuleLocationStore');
+        Ext.require('MyDesktop.app.store.CapsuleStore');
+        Ext.require('MyDesktop.app.store.EquipmentTypeStore');*/
+        Ext.require('MyDesktop.app.util.GlobalVariables');
+
+
+        var myDesktopApp;
+        Ext.onReady(function () {
+            if(!MyDesktop.app.util.GlobalVariables.loggined){
+                myDesktopApp = Ext.create('MyDesktop.app.view.user.Login');
+                myDesktopApp.show();
+
+            }else{
+                myDesktopApp = new MyDesktop.App();
+            }
+        });
+    </script>
+    <!-- </x-compile> -->
+</head>
+
+<body>
+    <!-- <a href="http://www.sencha.com" target="_blank" alt="Powered by Ext JS"
+       id="poweredby"><div></div></a>  -->
+
+</body>
+</html>
